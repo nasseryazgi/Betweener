@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 
 class NewLinkView extends StatelessWidget {
-  static String id = '/registerView';
+  static String id = '/newLinkView';
 
   TextEditingController titleController = TextEditingController();
   TextEditingController linkController = TextEditingController();
