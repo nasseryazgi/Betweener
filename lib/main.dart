@@ -1,6 +1,7 @@
 import 'package:bootcamp_starter/features/active_share/receive_view.dart';
 import 'package:bootcamp_starter/features/auth/login_view.dart';
 import 'package:bootcamp_starter/features/auth/register_view.dart';
+import 'package:bootcamp_starter/features/freind_profile/friend_profile.dart';
 import 'package:bootcamp_starter/features/home/home_view.dart';
 import 'package:bootcamp_starter/features/main_app/main_app_view.dart';
 import 'package:bootcamp_starter/features/onbording/onbording_view.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
                 color: kPrimaryColor),
           ),
           scaffoldBackgroundColor: kScaffoldColor),
-      home: const ProfileView(),
+      home: const Friendprofile(),
       routes: {
         LoginView.id: (context) => LoginView(),
         RegisterView.id: (context) => RegisterView(),
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         MainAppView.id: (context) => const MainAppView(),
         ProfileView.id: (context) => const ProfileView(),
         ReceiveView.id: (context) => const ReceiveView(),
+        Friendprofile.id: (context) => Friendprofile(),
       },
     );
   }
