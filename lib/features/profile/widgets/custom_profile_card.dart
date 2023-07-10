@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/util/assets.dart';
+import '../../../core/util/constants.dart';
+import '../../../core/util/constants_sizes.dart';
 import '../../../core/util/styles.dart';
 
 class CustomProfileCard extends StatelessWidget {
@@ -19,7 +21,26 @@ class CustomProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return 
+    Container(
+                    padding: EdgeInsets.only(
+                    //  top: 12,
+                      right: 15,
+                      left: 24,
+                     // bottom: 21
+
+                    ),
+                    height:kProfileCardHeigh,
+                    width: double.infinity,
+                    margin: EdgeInsets.only(
+                      left: 38,
+                      right: 38
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(kProfileCardRadius),
+                      color: kPrimaryColor
+                    ),
+   child: Container(
       child: Stack(
         children:[ Row(
           children: [
@@ -64,7 +85,7 @@ class CustomProfileCard extends StatelessWidget {
       */
       
           ],
-      
+        
         ),
       Positioned(
         top: 14,
@@ -80,6 +101,6 @@ class CustomProfileCard extends StatelessWidget {
       )
         ],
       ),
-    );
+    ));
   }
 }

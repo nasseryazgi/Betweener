@@ -1,4 +1,5 @@
 import 'package:bootcamp_starter/core/util/constants_sizes.dart';
+import 'package:bootcamp_starter/features/profile/widgets/custom_link_card.dart';
 import 'package:bootcamp_starter/features/profile/widgets/custom_profile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -39,25 +40,8 @@ class _ProfileViewState extends State<ProfileView> {
                  Text('Profile',style: Styles.textStyle15,),
               //comm:frit item: Profile Card
                   SizedBox(height: 36,),
-                  Container(
-                    padding: EdgeInsets.only(
-                    //  top: 12,
-                      right: 15,
-                      left: 24,
-                     // bottom: 21
-
-                    ),
-                    height:kProfileCardHeigh,
-                    width: double.infinity,
-                    margin: EdgeInsets.only(
-                      left: 38,
-                      right: 38
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(kProfileCardRadius),
-                      color: kPrimaryColor
-                    ),
-                  child: CustomProfileCard(
+                  
+                  CustomProfileCard(
                         email: 'example@gmail.com',
                         name: 'John Doe',
                       phone: '+970000000000',
@@ -68,7 +52,7 @@ class _ProfileViewState extends State<ProfileView> {
                   
                   
 
-                  ),
+                 
                   //comm:SecondItem:link card
                   //
                    SizedBox(height: 30,),
@@ -95,45 +79,3 @@ class _ProfileViewState extends State<ProfileView> {
     );
   }
 }
-
-class CustomLinkCard extends StatelessWidget {
-  final String mainTitleText;
-  final String theLinkText;
-  final TextStyle mainTitleStyle;
-  final TextStyle theLinkTextStyle;
-  
-   CustomLinkCard({
-    required this.mainTitleText,
-    required this.theLinkText,
-    required this.mainTitleStyle,
-    required this.theLinkTextStyle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 13,vertical: 10),
-       height:kLinkCardHeigh,
-    width: double.infinity,
-                  
-    decoration: BoxDecoration(
-        color: kLightDangerColor,
-        borderRadius: BorderRadius.circular(kProfileCardRadius)
-    ),
-    margin: EdgeInsets.only(
-      left: 38,
-      right: 38
-    ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(mainTitleText,style:mainTitleStyle,),
-        Text(theLinkText,style: theLinkTextStyle,)
-
-      ],
-    ),
-    );
-  }
-}
-
