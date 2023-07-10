@@ -20,3 +20,4 @@ const kOnLightDangerColor = Color(0xff783341);
 const kProfielTextColor  = Color(0xffFFFFFF);
 
 const kLinkTextColor = Color(0xff9B6A73);
+const kLink2TextColor = Color(0xff807D99);
