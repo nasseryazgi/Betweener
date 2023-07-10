@@ -1,4 +1,5 @@
 import 'package:bootcamp_starter/core/util/constants_sizes.dart';
+import 'package:bootcamp_starter/features/edit_link/edit_link_view.dart';
 import 'package:bootcamp_starter/features/profile/widgets/custom_link_card.dart';
 import 'package:bootcamp_starter/features/profile/widgets/custom_profile_card.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,10 @@ class _ProfileViewState extends State<ProfileView> {
                 height: 36,
               ),
 
-              CustomProfileCard(
+              CustomProfileCard(onPressed: (){
+                Navigator.pushNamed(context, EditLinkView.id);
+              },
+
                 email: 'example@gmail.com',
                 name: 'John Doe',
                 phone: '+970000000000',
