@@ -1,4 +1,5 @@
 import 'package:bootcamp_starter/core/util/assets.dart';
+import 'package:bootcamp_starter/core/util/constants.dart';
 import 'package:bootcamp_starter/core/util/styles.dart';
 import 'package:bootcamp_starter/features/profile/widgets/custom_link_card.dart';
 import 'package:flutter/material.dart';
@@ -65,14 +66,44 @@ class _FriendprofileState extends State<Friendprofile> {
               //
               SizedBox(height: 30,),
 
-              CustomLinkCard(
-                mainTitleStyle:Styles.textStyle18,
-                mainTitleText: 'INSTAGRAM',
-                theLinkText: 'https://www.instagram.com/a7medhq/',
-                theLinkTextStyle: Styles.textStyle19,
+              // CustomLinkCard(
+              //   backgrounColor: ,
+              //   mainTitleStyle:Styles.textStyle18,
+              //   mainTitleText: 'INSTAGRAM',
+              //   theLinkText: 'https://www.instagram.com/a7medhq/',
+              //   theLinkTextStyle: Styles.textStyle19,
+              //
+              // ),
+              Expanded(child:
+              ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(
+                      children: [
 
+                        index%2==0?  CustomLinkCard(
+                          mainTitleStyle:Styles.textStyle18,
+                          mainTitleText: 'INSTAGRAM',
+                          theLinkText: 'https://www.instagram.com/a7medhq/',
+                          theLinkTextStyle: Styles.textStyle19,
+                          backgrounColor: kLightDangerColor,
+
+                        ):
+                        CustomLinkCard(
+                          mainTitleStyle:Styles.textStyle20,
+                          mainTitleText: 'INSTAGRAM',
+                          theLinkText: 'https://www.instagram.com/a7medhq/',
+                          theLinkTextStyle: Styles.textStyle19,
+                          backgrounColor: kLightPrimaryColor,
+
+                        )
+                        ,
+                        SizedBox(height: 24,)
+                      ],
+                    );
+
+                  }),
               ),
-
               SizedBox(height: 24,),
 
 
