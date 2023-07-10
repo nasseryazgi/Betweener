@@ -56,11 +56,6 @@ class _FriendprofileState extends State<Friendprofile> {
               FriendProfileCard( email: 'example@gmail.com',
                 name: 'John Doe',
                 ),
-
-
-
-
-
               //comm:SecondItem:link card
               //
               SizedBox(height: 30,),
@@ -70,6 +65,7 @@ class _FriendprofileState extends State<Friendprofile> {
                 mainTitleText: 'INSTAGRAM',
                 theLinkText: 'https://www.instagram.com/a7medhq/',
                 theLinkTextStyle: Styles.textStyle19,
+                backgrounColor: Colors.black,
 
               ),
 

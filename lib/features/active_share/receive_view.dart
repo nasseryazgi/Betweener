@@ -19,51 +19,32 @@ class ReceiveView extends StatefulWidget {
 class _ReceiveViewState extends State<ReceiveView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: 47,
+    return Column(
+      children: [
+        SizedBox(
+          height: 47,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 101),
+          child: Text(
+            'Active Sharing',
+            style: Styles.textStyle15,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 101),
-            child: Text(
-              'Active Sharing',
-              style: Styles.textStyle15,
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 127, left: 113),
-            child: SvgPicture.asset(AssetsData.share),
-          ),
-          SizedBox(
-            height: 34.18,
-          ),
-          FriendAcc(),
-          FriendAcc(),
-          FriendAcc(),
-        ],
-      ),
-      bottomNavigationBar: CustomFloatingNavBar(
-          currentIndex: 1,
-          onTap: (index) {
-            if (index == 0) {
-              setState(() {
-                Navigator.pushNamed(context, HomeView.id);
-              });
-            } else if (index == 1) {
-              setState(() {
-                Navigator.pushNamed(context, ReceiveView.id);
-              });
-            } else if (index == 2) {
-              setState(() {
-                Navigator.pushNamed(context, Friendprofile.id);
-              });
-            }
-          }),
+        ),
+        SizedBox(
+          height: 40,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 127, left: 113),
+          child: SvgPicture.asset(AssetsData.share),
+        ),
+        SizedBox(
+          height: 34.18,
+        ),
+        FriendAcc(),
+        FriendAcc(),
+        FriendAcc(),
+      ],
     );
   }
 }
