@@ -29,82 +29,76 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                margin: EdgeInsets.only(right: 3),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Image.asset(AssetsData.searchIcon),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    InkWell(
-                        onTap: () async {
-                          scanResult = await scanner.scan();
-                          setState(() {});
-                        },
-                        child: Image.asset(AssetsData.scanIcon)),
-                  ],
-                ),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(right: 3),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Image.asset(AssetsData.searchIcon),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  InkWell(
+                      onTap: () async {
+                        scanResult = await scanner.scan();
+                        setState(() {});
+                      },
+                      child: Image.asset(AssetsData.scanIcon)),
+                ],
               ),
+            ),
 
-              SizedBox(
-                height: 46,
-              ),
-              // Text('Barcode Result: $result'),
-              Text(
-                'Hello, Ahmed!',
-                style: Styles.textStyle22,
-              ),
-              SizedBox(
-                height: 35,
-              ),
-              Image.asset(AssetsData.myqr),
-              SizedBox(
-                height: 35,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 50),
-                width: double.infinity,
-                height: 3,
-                color: Colors.black,
-              ),
+            SizedBox(
+              height: 46,
+            ),
+            // Text('Barcode Result: $result'),
+            Text(
+              'Hello, Ahmed!',
+              style: Styles.textStyle22,
+            ),
+            SizedBox(
+              height: 35,
+            ),
+            Image.asset(AssetsData.myqr),
 
-              SizedBox(
-                height: 50,
-              ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              width: double.infinity,
+              height: 3,
+              color: Colors.black,
+            ),
 
-              Expanded(
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: numOfCount,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Row(
-                        children: [
-                          index == numOfCount - 1
-                              ? AddOneCard()
-                              : CustomCardDetail(
-                                  title: 'FACEBOOK',
-                                  subTitle: '@oalshokri',
-                                ),
-                          SizedBox(
-                            width: 25,
-                          )
-                        ],
-                      );
-                    }),
-              ),
-            ],
-          ),
+            SizedBox(
+              height: 50,
+            ),
+
+            Expanded(
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: numOfCount,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Row(
+                      children: [
+                        index == numOfCount - 1
+                            ? AddOneCard()
+                            : CustomCardDetail(
+                                title: 'FACEBOOK',
+                                subTitle: '@oalshokri',
+                              ),
+                        SizedBox(
+                          width: 25,
+                        )
+                      ],
+                    );
+                  }),
+            ),
+          ],
         ),
-
-//comm: BottomNavbar
       ),
     );
   }
