@@ -5,7 +5,8 @@ class AssetsData {
   static const profileImage = 'assets/imgs/person.png';
   static const myqr = 'assets/imgs/qrcode.png';
   static const plusPicture = 'assets/imgs/plus.svg';
-  
+    static const share = 'assets/imgs/share.svg';
+
   
 
 
