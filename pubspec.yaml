@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  qrscan: ^0.2.19
+  qrscan: ^0.3.3
 
 
   # The following adds the Cupertino Icons font to your application.

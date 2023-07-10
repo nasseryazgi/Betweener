@@ -1,14 +1,13 @@
 import 'package:bootcamp_starter/features/home/widgets/CustomCardDetails.dart';
 import 'package:bootcamp_starter/features/home/widgets/add_one_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+
 
 
 import '../../core/util/assets.dart';
 import '../../core/util/constants.dart';
 import '../../core/util/styles.dart';
-import 'package:simple_barcode_scanner/simple_barcode_scanner.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+
 import 'package:qrscan/qrscan.dart' as scanner; 
 class HomeView extends StatefulWidget {
   static String id = '/homeView';
@@ -23,7 +22,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final numOfCount = 3;
- QRViewController? qrViewController;
+
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QRView');
 
  var index = 0;

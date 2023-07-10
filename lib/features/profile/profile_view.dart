@@ -68,7 +68,7 @@ class _ProfileViewState extends State<ProfileView> {
                     ListView.builder(
           itemCount: 5,
           itemBuilder: (BuildContext context, int index) {
-            return Column(
+                       return Column(
               children: [
 
               index%2==0?  CustomLinkCard(
@@ -90,8 +90,8 @@ class _ProfileViewState extends State<ProfileView> {
                           ,
                           SizedBox(height: 24,)
               ],
-            )
-          ;
+            );
+            
           }),
                     )
                  
