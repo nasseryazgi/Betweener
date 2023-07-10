@@ -7,12 +7,15 @@ class CustomLinkCard extends StatelessWidget {
   final String theLinkText;
   final TextStyle mainTitleStyle;
   final TextStyle theLinkTextStyle;
+  final Color backgrounColor;
   
    CustomLinkCard({
     required this.mainTitleText,
     required this.theLinkText,
     required this.mainTitleStyle,
     required this.theLinkTextStyle,
+    required this.backgrounColor,
+    
   });
 
   @override
@@ -23,7 +26,9 @@ class CustomLinkCard extends StatelessWidget {
     width: double.infinity,
                   
     decoration: BoxDecoration(
-        color: kLightDangerColor,
+        color:backgrounColor
+        
+         ,
         borderRadius: BorderRadius.circular(kProfileCardRadius)
     ),
     margin: EdgeInsets.only(

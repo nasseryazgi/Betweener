@@ -31,4 +31,28 @@ abstract class Styles {
       static const textStyle19 = TextStyle(
       fontSize: 14, fontWeight: FontWeight.w400, color: kLinkTextColor,
      );  
+         static const textStyle20 = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w400, color: kPrimaryColor,
+      letterSpacing: 4,
+     );
+      static const textStyle21 = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w400, color: kLink2TextColor,
+     ); 
+
+
+
+       static const textStyle22 = TextStyle(
+      fontSize: 28, fontWeight: FontWeight.w500, color: kPrimaryColor); 
+
+
+         static const textStyle23 = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w600, color: kOnSecondaryColor,
+       ); 
+       static const textStyle24 = TextStyle(
+      fontSize: 13, fontWeight: FontWeight.w300, color: kOnSecondaryColor,
+       );  
+  static const textStyle25 = TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w600, color: kPrimaryColor,
+       ); 
+
 }
