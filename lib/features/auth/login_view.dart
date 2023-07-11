@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:bootcamp_starter/controllers/AuthApiController.dart';
+import 'package:bootcamp_starter/core/util/api_response.dart';
 import 'package:bootcamp_starter/core/util/assets.dart';
 import 'package:bootcamp_starter/core/widgets/custom_labeled_textfield_widget.dart';
 import 'package:bootcamp_starter/core/widgets/primary_outlined_button_widget.dart';
@@ -53,7 +57,21 @@ class LoginView extends StatelessWidget {
                   height: 24,
                 ),
                 SecondaryButtonWidget(
-                    onTap: () {
+                    onTap: () async {
+                      String email = emailController.text;
+                      String password = passwordController.text;
+
+                      // Call the Login method from AuthApiController
+                      dynamic result = await AuthApiController().Login(email: email, password: password);
+
+                      if (result is Link) {
+                        // Successful login
+                        Navigator.pushNamed(context, MainAppView.id);
+                      } else {
+                        // Error occurred
+                        // Handle the error, such as displaying an error message
+                        print(result); // For debugging purposes
+                      }
                       Navigator.pushNamed(context, MainAppView.id);
                     },
                     text: 'LOGIN'),
