@@ -5,20 +5,17 @@ import 'package:http/http.dart' as http;
 import '../SharedPrefencess/shared_pref_controller.dart';
 
 class AuthApiController {
-  Future<String> getUserToken(String email, String username) async {
-    final String url = "http://osamapro.online/api/login"; // Replace with the actual API endpoint for user authentication
+  Future<String> getUserToken({required String email, required String password}) async {
+    final String uri = "http://osamapro.online/api/login";
+    var url = Uri.parse(uri);
 
-    Map<String, String> body = {
-      'email': email,
-      'username': username,
-    };
 
     Map<String, String> header = {
       'Content-Type': 'application/json',
     };
 
     try {
-      final response = await http.post(Uri.parse(url), headers: header, body: jsonEncode(body));
+      final response = await http.post(Uri.parse(uri), body: {"email": email, "password": password});
 
       if (response.statusCode == 200) {
         final responseJson = json.decode(response.body);

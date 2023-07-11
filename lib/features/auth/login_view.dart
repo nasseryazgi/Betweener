@@ -66,7 +66,7 @@ class LoginView extends StatelessWidget {
                     // Call the Login method from AuthApiController
                     AuthApiController authApiController = AuthApiController();
                     try {
-                      String token = await authApiController.getUserToken(email, password);
+                      String token = await authApiController.getUserToken(email : email, password:password);
 
                       // Successful login
                       Navigator.pushNamed(context, MainAppView.id);
