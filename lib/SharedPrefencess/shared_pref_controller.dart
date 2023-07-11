@@ -35,10 +35,10 @@ class SharedPrefController {
     // await _sharedPreferences.setBool(Prefkeys.isActive.name, student.isActive);
   }
 
-  bool get loggedIn =>
-      _sharedPreferences.getBool(Prefkeys.loggedIn.name) ?? false;
-
-  String get token => _sharedPreferences.getString(Prefkeys.token.name)?? ""  ;
-
-  Future<bool> clear() async => _sharedPreferences.clear();
+  // bool get loggedIn =>
+  //     _sharedPreferences.getBool(Prefkeys.loggedIn.name) ?? false;
+  //
+  // String get token => _sharedPreferences.getString(Prefkeys.token.name)?? ""  ;
+  //
+  // Future<bool> clear() async => _sharedPreferences.clear();
 }
