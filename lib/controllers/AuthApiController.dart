@@ -1,29 +1,39 @@
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:bootcamp_starter/SharedPrefencess/shared_pref_controller.dart';
-import 'package:bootcamp_starter/core/util/api_response.dart';
-import 'package:bootcamp_starter/features/auth/login_view.dart';
-import 'package:bootcamp_starter/models/link_model.dart';
 import 'package:http/http.dart' as http;
 
-String loginurl = "http://osamapro.online/api/login";
+import '../SharedPrefencess/shared_pref_controller.dart';
+
 class AuthApiController {
-  Future<dynamic> Login ({required String email, required String password}) async {
-    var uri = Uri.parse(loginurl);
-    var response =
-    await http.post(uri, body: {"email": email, "password": password});
-    if (response.statusCode == 200 || response.statusCode == 400) {
-      var jsonResponse = jsonDecode(response.body);
+  Future<String> getUserToken(String email, String username) async {
+    final String url = "http://osamapro.online/api/login"; // Replace with the actual API endpoint for user authentication
+
+    Map<String, String> body = {
+      'email': email,
+      'username': username,
+    };
+
+    Map<String, String> header = {
+      'Content-Type': 'application/json',
+    };
+
+    try {
+      final response = await http.post(Uri.parse(url), headers: header, body: jsonEncode(body));
+
       if (response.statusCode == 200) {
-        Link link = Link.fromJson(jsonResponse['object']);
-        await SharedPrefController().save(links:link);
-        return link;
+        final responseJson = json.decode(response.body);
+        final String token = responseJson['token'];
 
-      }else return "Error";
+        final sharedPrefController = SharedPrefController();
+        await sharedPrefController.initPreferences();
+        await sharedPrefController.saveToken(token);
 
+        return token;
+      } else {
+        throw Exception('Failed to get user token');
+      }
+    } catch (e) {
+      throw Exception('Failed to connect to the API');
     }
-
   }
-
 }

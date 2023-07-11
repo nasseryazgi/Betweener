@@ -22,18 +22,16 @@ class SharedPrefController {
     return _instance;
   }
 
-  Future<void> initPrefancess() async {
+  Future<void> initPreferences() async {
     _sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  Future<void> save({required Link links}) async {
-    await _sharedPreferences.setBool(Prefkeys.loggedIn.name, true);
-    await _sharedPreferences.setInt(Prefkeys.id.name, links.id);
-    await _sharedPreferences.setInt(Prefkeys.userId.name, links.userId);
-    await _sharedPreferences.setString(Prefkeys.username.name, links.username);
-    await _sharedPreferences.setString(Prefkeys.link.name,'Bearer ${links.link}');
-    await _sharedPreferences.setInt(Prefkeys.isActive.name, links.isActive);
+
+  Future<void> saveToken(String token) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.setString(Prefkeys.link.name, 'Bearer $token');
   }
+
 
   bool get loggedIn =>
       _sharedPreferences.getBool(Prefkeys.loggedIn.name) ?? false;

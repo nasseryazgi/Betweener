@@ -59,7 +59,7 @@ import 'package:flutter/material.dart';
 
 import 'core/util/constants.dart';
 import 'features/edit_profile/edit_profile_view.dart';
-
+import 'test/test.dart';
 void main() async {
   runApp(const MyApp());
 }
@@ -82,7 +82,7 @@ class MyApp extends StatelessWidget {
                 color: kPrimaryColor),
           ),
           scaffoldBackgroundColor: kScaffoldColor),
-      home: const OnBoardingView(),
+      home: TestView() ,
       routes: {
         LoginView.id: (context) => LoginView(),
         RegisterView.id: (context) => RegisterView(),
