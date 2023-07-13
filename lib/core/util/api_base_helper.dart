@@ -1,10 +1,11 @@
   import 'dart:convert';
   import 'dart:io';
-  import 'package:http/http.dart' as http;
+  import 'package:bootcamp_starter/core/util/constants.dart';
+import 'package:http/http.dart' as http;
   import 'app_exception.dart';
 
   class ApiBaseHelper {
-    final String _baseUrl = "http://osamapro.online/api";
+    final String _baseUrl = baseUrl;
 
     Future<dynamic> get(String url, Map<String, String> header) async {
       var responseJson;

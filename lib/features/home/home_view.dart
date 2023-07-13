@@ -1,12 +1,16 @@
 import 'package:bootcamp_starter/features/home/widgets/CustomCardDetails.dart';
 import 'package:bootcamp_starter/features/home/widgets/add_one_card.dart';
 import 'package:flutter/material.dart';
-
+import 'package:geolocator/geolocator.dart';
+import '../../SharedPrefencess/shared_pref_controller.dart';
 import '../../core/util/assets.dart';
 import '../../core/util/constants.dart';
+import '../../core/util/location_service.dart';
 import '../../core/util/styles.dart';
 
 import 'package:qrscan/qrscan.dart' as scanner;
+
+// import '../../models/position_model.dart';
 
 class HomeView extends StatefulWidget {
   static String id = '/homeView';
@@ -21,6 +25,51 @@ class _HomeViewState extends State<HomeView> {
   final numOfCount = 3;
 
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QRView');
+
+  int? _userId;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserId();
+  }
+
+  Future<void> _loadUserId() async {
+
+    final sharedPrefController = SharedPrefController();
+    await sharedPrefController.initPreferences();
+    setState(() {
+      _userId = sharedPrefController.userId;
+      print("loading id ");
+      print(_userId);
+      if (_userId != null) {
+        updatePosition(userId: _userId!);
+      }
+    });
+
+    // setState(() {});
+  }
+
+  // Future<void> _getCurrentLocation() async {
+  //   try {
+  //     Position position = await determinePosition();
+  //     setState(() {
+  //       _currentPosition = position;
+  //     });
+  //   } catch (e) {
+  //     print('Error: $e');
+  //   }
+  // }
+  //
+  // void _updateUserLocation() {
+  //   if (_currentPosition != null) {
+  //     int userId = 1; // Replace with the actual user ID
+  //     String latitude = _currentPosition!.latitude.toString();
+  //     String longitude = _currentPosition!.longitude.toString();
+  //     updatePosition(userId: userId, latitude: latitude, longitude: longitude);
+  //   }
+  // }
+
 
   var index = 0;
   String result = '';
@@ -45,8 +94,10 @@ class _HomeViewState extends State<HomeView> {
                   ),
                   InkWell(
                       onTap: () async {
-                        scanResult = await scanner.scan();
-                        setState(() {});
+                        print("user");
+                        print(_userId);
+                        // scanResult = await scanner.scan();
+                        // setState(() {});
                       },
                       child: Image.asset(AssetsData.scanIcon)),
                 ],

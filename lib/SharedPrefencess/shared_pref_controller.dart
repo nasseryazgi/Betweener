@@ -27,9 +27,21 @@ class SharedPrefController {
   }
 
 
-  Future<void> saveToken(String token) async {
+  Future<void> saveToken(String token , {int ?userId, String ? name}) async {
     final sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.setString(Prefkeys.link.name, 'Bearer $token');
+    if (userId != null) {
+      await sharedPreferences.setInt(Prefkeys.userId.name, userId);
+    }
+
+    if (name != null) {
+      await sharedPreferences.setString(Prefkeys.username.name, name);
+    }
+  }
+  Future<String?> getToken() async {
+    final sharedPrefController = SharedPrefController();
+    await sharedPrefController.initPreferences();
+    return sharedPrefController.token;
   }
 
 
@@ -37,6 +49,9 @@ class SharedPrefController {
       _sharedPreferences.getBool(Prefkeys.loggedIn.name) ?? false;
 
   String get token => _sharedPreferences.getString(Prefkeys.link .name)?? ""  ;
-
+  int ?get userId =>
+      _sharedPreferences.getInt(Prefkeys.userId.name);
+  String? get name =>
+      _sharedPreferences.getString(Prefkeys.username.name);
   Future<bool> clear() async => _sharedPreferences.clear();
 }
