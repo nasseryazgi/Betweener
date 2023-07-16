@@ -14,24 +14,14 @@ class LinkResponse {
 }
 
 class Link {
- late int id;
- late String title;
- late String link;
- late String username;
- late int isActive;
- late int userId;
- late String createdAt;
- late String updatedAt;
-
-  // Link(
-  //     {required this.id,
-  //      required this.title,
-  //      required this.link,
-  //      required this.username,
-  //      required this.isActive,
-  //      required this.userId,
-  //      required this.createdAt,
-  //      required this.updatedAt});
+  int? id;
+  String? title;
+  String? link;
+  String? username;
+  int? isActive;
+  int? userId;
+  String? createdAt;
+  String? updatedAt;
 
   Link.fromJson(Map<String, dynamic> json) {
     id = json['id'];

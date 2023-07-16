@@ -21,3 +21,6 @@ const kProfielTextColor  = Color(0xffFFFFFF);
 
 const kLinkTextColor = Color(0xff9B6A73);
 const kLink2TextColor = Color(0xff807D99);
+
+
+const baseUrl = "http://172.16.6.87:8000/api";

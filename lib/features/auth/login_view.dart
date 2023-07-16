@@ -19,7 +19,7 @@ class LoginView extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  LoginView({super.key});
+  LoginView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +33,12 @@ class LoginView extends StatelessWidget {
               children: [
                 const Spacer(),
                 SizedBox(
-                    height: MediaQuery.of(context).size.height / 5,
-                    child: Hero(
-                        tag: 'authImage',
-                        child: SvgPicture.asset(AssetsData.authImage))),
+                  height: MediaQuery.of(context).size.height / 5,
+                  child: Hero(
+                    tag: 'authImage',
+                    child: SvgPicture.asset(AssetsData.authImage),
+                  ),
+                ),
                 const Spacer(),
                 PrimaryLabeledTextFieldWidget(
                   controller: emailController,
@@ -50,48 +52,51 @@ class LoginView extends StatelessWidget {
                 PrimaryLabeledTextFieldWidget(
                   controller: passwordController,
                   hint: 'Enter password',
-                  label: 'password',
+                  label: 'Password',
                   password: true,
                 ),
                 const SizedBox(
                   height: 24,
                 ),
                 SecondaryButtonWidget(
-                    onTap: () async {
-                      String email = emailController.text;
-                      String password = passwordController.text;
+                  onTap: () async {
+                    String email = emailController.text;
+                    String password = passwordController.text;
 
-                      // Call the Login method from AuthApiController
-                      dynamic result = await AuthApiController().Login(email: email, password: password);
+                    // Call the Login method from AuthApiController
+                    AuthApiController authApiController = AuthApiController();
+                    try {
+                      String token = await authApiController.getUserToken(email : email, password:password);
 
-                      if (result is Link) {
-                        // Successful login
-                        Navigator.pushNamed(context, MainAppView.id);
-                      } else {
-                        // Error occurred
-                        // Handle the error, such as displaying an error message
-                        print(result); // For debugging purposes
-                      }
+                      // Successful login
                       Navigator.pushNamed(context, MainAppView.id);
-                    },
-                    text: 'LOGIN'),
+                    } catch (e) {
+                      // Error occurred
+                      // Handle the error, such as displaying an error message
+                      print(e.toString()); // For debugging purposes
+                    }
+                  },
+                  text: 'LOGIN',
+                ),
                 const SizedBox(
                   height: 24,
                 ),
                 PrimaryOutlinedButtonWidget(
-                    onTap: () {
-                      Navigator.pushNamed(context, RegisterView.id);
-                    },
-                    text: 'REGISTER'),
+                  onTap: () {
+                    Navigator.pushNamed(context, RegisterView.id);
+                  },
+                  text: 'REGISTER',
+                ),
                 const SizedBox(
                   height: 12,
                 ),
                 Text(
                   '-  or  -',
                   style: TextStyle(
-                      color: Colors.grey.shade500,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w300),
+                    color: Colors.grey.shade500,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
                 const SizedBox(
                   height: 12,
